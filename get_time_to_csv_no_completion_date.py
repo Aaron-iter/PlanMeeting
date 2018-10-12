@@ -140,8 +140,8 @@ def format_work_time_to_day_hour():
 def read_item_info_into_data_frame(items):
     print("Read items plan time into data frame")
     for item in items:
-        if item['type'].lower() in ('story', 'defect') and len(item['sub_tasks']) > 0:
-            # if story and defect with sub tasks don't need to count estimated time
+        if len(item['sub_tasks']) > 0:
+            # if item with sub tasks don't need to count estimated time, just count sub-task's estimated time
             continue
         if item['parent_key']:
             # exists parent item, so it's bug, sub-task..
